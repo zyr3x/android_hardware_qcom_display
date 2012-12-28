@@ -101,7 +101,7 @@ bool MdssRot::queueBuffer(int fd, uint32_t offset) {
         remap(RotMem::Mem::ROT_NUM_BUFS);
         OVASSERT(mMem.curr().m.numBufs(), "queueBuffer numbufs is 0");
 
-        mRotData.dst_data.offset =
+        mRotData.offset =
                 mMem.curr().mRotOffset[mMem.curr().mCurrOffset];
         mMem.curr().mCurrOffset =
                 (mMem.curr().mCurrOffset + 1) % mMem.curr().m.numBufs();
@@ -140,8 +140,8 @@ bool MdssRot::open_i(uint32_t numbufs, uint32_t bufsz)
     OVASSERT(MAP_FAILED != mem.addr(), "MAP failed");
     OVASSERT(mem.getFD() != -1, "getFd is -1");
 
-    mRotData.dst_data.memory_id = mem.getFD();
-    mRotData.dst_data.offset = 0;
+    mRotData.memory_id = mem.getFD();
+    mRotData.offset = 0;
     mMem.curr().m = mem;
     return true;
 }

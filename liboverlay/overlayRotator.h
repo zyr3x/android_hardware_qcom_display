@@ -441,10 +441,10 @@ inline void MdssRot::setDisable() { mEnabled = false; }
 inline bool MdssRot::enabled() const { return mEnabled; }
 inline void MdssRot::setRotations(uint32_t flags) { mRotInfo.flags |= flags; }
 inline int MdssRot::getDstMemId() const {
-    return mRotData.dst_data.memory_id;
+    return mRotData.memory_id;
 }
 inline uint32_t MdssRot::getDstOffset() const {
-    return mRotData.dst_data.offset;
+    return mRotData.offset;
 }
 inline uint32_t MdssRot::getSessId() const { return mRotInfo.id; }
 inline void MdssRot::setSrcFB() {

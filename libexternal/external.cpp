@@ -444,7 +444,7 @@ bool ExternalDisplay::writeHPDOption(int userOption) const
  * mExternalDisplay has the mixer number(1-> HDMI 2-> WFD)
  */
 bool ExternalDisplay::post()
-{
+{/*
     if(mFd == -1) {
         return false;
     } else if(ioctl(mFd, MSMFB_OVERLAY_COMMIT, &mExternalDisplay) == -1) {
@@ -452,6 +452,7 @@ bool ExternalDisplay::post()
                                                           strerror(errno));
          return false;
     }
+    */
     return true;
 }
 
