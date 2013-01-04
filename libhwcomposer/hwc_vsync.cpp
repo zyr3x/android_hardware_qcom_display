@@ -84,7 +84,6 @@ static void *vsync_loop(void *param)
           pthread_cond_wait(&ctx->vstate.cond, &ctx->vstate.lock);
         }
         pthread_mutex_unlock(&ctx->vstate.lock);
-#ifdef MSMFB_OVERLAY_VSYNC_CTRL
             if(enabled) {
                 int e = 0;
                 if(!fakevsync && ioctl(ctx->dpyAttr[dpy].fd, MSMFB_OVERLAY_VSYNC_CTRL,
@@ -106,7 +105,7 @@ static void *vsync_loop(void *param)
             }
             enabled = true;
         }
-#endif
+
     if(!fakevsync) {
         for(int i = 0; i < MAX_RETRY_COUNT; i++) {
             len = pread(fd_timestamp, vdata, MAX_DATA, 0);
