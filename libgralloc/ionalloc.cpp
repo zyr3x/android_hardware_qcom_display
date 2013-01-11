@@ -26,8 +26,8 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#define DEBUG 0
 
+#define DEBUG 0
 #include <linux/ioctl.h>
 #include <sys/mman.h>
 #include <stdlib.h>

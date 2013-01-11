@@ -35,7 +35,6 @@
 #include <linux/android_pmem.h>
 #include "gralloc_priv.h"
 #include "pmemalloc.h"
-
 #include "pmem_bestfit_alloc.h"
 
 using namespace gralloc;

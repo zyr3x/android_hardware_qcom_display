@@ -223,19 +223,12 @@ int mapFrameBufferLocked(struct private_module_t* module)
         /*
          * Explicitly request RGBA_8888
          */
-#ifdef SEMC_RGBA_8888_OFFSET
-        info.red.offset     = 0;
-        info.green.offset   = 8;
-        info.blue.offset    = 16;
-        info.transp.offset  = 24;
-#else
-        info.red.offset     = 24;
-        info.green.offset   = 16;
-        info.blue.offset    = 8;
-#endif
         info.bits_per_pixel = 32;
+        info.red.offset     = 24;
         info.red.length     = 8;
+        info.green.offset   = 16;
         info.green.length   = 8;
+        info.blue.offset    = 8;
         info.blue.length    = 8;
         info.transp.offset  = 0;
         info.transp.length  = 8;
@@ -293,6 +286,7 @@ int mapFrameBufferLocked(struct private_module_t* module)
     info.yres_virtual = (size * numberOfBuffers) / line_length;
 
     uint32_t flags = PAGE_FLIP;
+
     if (info.yres_virtual < ((size * 2) / line_length) ) {
         // we need at least 2 for page-flipping
         info.yres_virtual = size / line_length;
