@@ -34,18 +34,6 @@ ifneq ($(TARGET_USES_ION), false)
     common_flags += -DUSE_ION
 endif
 
-ifeq ($(TARGET_NO_HW_VSYNC),true)
-    common_flags += -DNO_HW_VSYNC
-endif
-
-ifeq ($(TARGET_NO_HDMI),true)
-    common_flags += -DNO_HDMI
-endif
-
-ifeq ($(TARGET_NO_HW_OVERLAY),true)
-    common_flags += -DNO_HW_OVERLAY
-endif
-
 common_deps  :=
 kernel_includes :=
 
